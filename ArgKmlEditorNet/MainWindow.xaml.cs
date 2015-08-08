@@ -77,11 +77,16 @@ namespace ArgKmlEditorNet
                         return;
                     }
                 }
-                KmlTreeViewController c = new KmlTreeViewController();
-                c.SetTreeView(this.KmlItemsTreeView);
-                c.SetKML(kmlFile);
-                c.ProcessKml();
-                c.TreeViewSelectionChanged += c_TreeViewSelectionChanged;
+                KmlTreeViewController kmlTreeViewController = new KmlTreeViewController();
+                kmlTreeViewController.SetTreeView(this.KmlItemsTreeView);
+                kmlTreeViewController.SetKML(kmlFile);
+                kmlTreeViewController.ProcessKml();
+                kmlTreeViewController.TreeViewSelectionChanged += c_TreeViewSelectionChanged;
+
+                KmlSchemaComboBoxController kmlSchemaComboBoxController = new KmlSchemaComboBoxController();
+                kmlSchemaComboBoxController.SetComboBox(this.SchemaSchemaListComboBox);
+                kmlSchemaComboBoxController.SetKML(kmlFile);
+                kmlSchemaComboBoxController.ProcessKml();
             }
         }
 

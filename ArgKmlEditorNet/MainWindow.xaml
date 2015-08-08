@@ -4,10 +4,31 @@
         Title="MainWindow" Height="581.35" Width="680">
     <Grid>
         <Button x:Name="OpenFileButton" Content="Open File" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="OpenFileButton_Click"/>
-        <TreeView x:Name="KmlItemsTreeView" HorizontalAlignment="Left" Height="504" Margin="10,37,0,0" VerticalAlignment="Top" Width="184"/>
-        <Label Content="Name:&#xD;&#xA;" HorizontalAlignment="Left" Margin="223,46,0,0" VerticalAlignment="Top" Width="61" Height="24"/>
-        <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" Height="23" Margin="308,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="292" TextChanged="NameTextBox_TextChanged"/>
-        <Label Content="Description:&#xD;&#xA;" HorizontalAlignment="Left" Margin="223,75,0,0" VerticalAlignment="Top" Width="80" Height="25"/>
-        <TextBox x:Name="DescriptionTextBox" HorizontalAlignment="Left" Height="85" Margin="308,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="287" AcceptsReturn="True" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Auto" TextChanged="DescriptionTextBox_TextChanged"/>
+        <TreeView x:Name="KmlItemsTreeView" HorizontalAlignment="Left" Height="514" Margin="0,37,0,0" VerticalAlignment="Top" Width="189"/>
+        <TabControl HorizontalAlignment="Left"
+		    Height="514"
+		    Margin="189,37,0,0"
+		    VerticalAlignment="Top"
+		    Width="483">
+            <TabItem Header="Properties">
+                <Grid>
+                    <Label Content="Name:&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" Width="61" Height="24"/>
+                    <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" Height="23" Margin="95,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="292" TextChanged="NameTextBox_TextChanged"/>
+                    <Label Content="Description:&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="80" Height="25"/>
+                    <TextBox x:Name="DescriptionTextBox" HorizontalAlignment="Left" Height="85" Margin="95,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="287" AcceptsReturn="True" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Auto" TextChanged="DescriptionTextBox_TextChanged"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Schemas">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="14*"/>
+                        <ColumnDefinition Width="22*"/>
+                        <ColumnDefinition Width="437*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Name:&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3"/>
+                    <ComboBox x:Name="SchemaSchemaListComboBox" HorizontalAlignment="Left" Height="23" Margin="95,15,0,0" VerticalAlignment="Top" Width="292" Grid.Column="2"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

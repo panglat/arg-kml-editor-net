@@ -64,6 +64,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="KMLFeatureTreeViewItem.cs" />
+    <Compile Include="KmlSchemaComboBoxController.cs" />
+    <Compile Include="KmlSchemaComboBoxItem.cs" />
     <Compile Include="Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
