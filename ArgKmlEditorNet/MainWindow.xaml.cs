@@ -30,8 +30,15 @@ namespace ArgKmlEditorNet
         public MainWindow()
         {
             InitializeComponent();
+            SchemaListView.Items.Add(new MyListViewItem { Type = "int", Name = "Prueba" });
         }
 
+        public class MyListViewItem
+        {
+            public string Type { get; set; }
+            public string Name { get; set; }
+
+        }
         private void OpenFileButton_Click(object sender, RoutedEventArgs e)
         {
             // Create an instance of the open file dialog box.
@@ -84,7 +91,7 @@ namespace ArgKmlEditorNet
                 kmlTreeViewController.TreeViewSelectionChanged += c_TreeViewSelectionChanged;
 
                 KmlSchemaComboBoxController kmlSchemaComboBoxController = new KmlSchemaComboBoxController();
-                kmlSchemaComboBoxController.SetComboBox(this.SchemaSchemaListComboBox);
+                kmlSchemaComboBoxController.SetComboBox(this.SchemaListComboBox);
                 kmlSchemaComboBoxController.SetKML(kmlFile);
                 kmlSchemaComboBoxController.ProcessKml();
             }
