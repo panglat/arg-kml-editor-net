@@ -9,12 +9,18 @@ using System.Windows.Controls;
 
 namespace ArgKmlEditorNet
 {
-    class KmlSchemaComboBoxController
+
+    public class KmlSchemaComboBoxSelectionChangedEventArgs : EventArgs
+    {
+        public Schema schemaItem { get; set; }
+    }
+
+    class KmlSchemaNameComboBoxController
     {
         KmlFile _kmlFile = null;
         ComboBox _comboBox = null;
 
-        public event EventHandler<SelectionChangedEventArgs> ComboBoxSelectionChanged;
+        public event EventHandler<KmlSchemaComboBoxSelectionChangedEventArgs> ComboBoxSelectionChanged;
 
         public void SetKML(KmlFile kmlFile)
         {
@@ -24,7 +30,6 @@ namespace ArgKmlEditorNet
         public void SetComboBox(ComboBox comboBox)
         {
             _comboBox = comboBox;
-            // this.MyComboBox.SelectionChanged += new SelectionChangedEventHandler(OnMyComboBoxChanged);
             comboBox.SelectionChanged += new SelectionChangedEventHandler(ComboBox_SelectionChanged);
         }
 
@@ -66,6 +71,12 @@ namespace ArgKmlEditorNet
         {
             KmlSchemaComboBoxItem kmlSchemaComboBoxItem = (KmlSchemaComboBoxItem)((ComboBox)sender).SelectedItem;
             Schema schema = kmlSchemaComboBoxItem.Schema;
+
+            EventHandler<KmlSchemaComboBoxSelectionChangedEventArgs> handler = ComboBoxSelectionChanged;
+            if (handler != null)
+            {
+                handler(this, new KmlSchemaComboBoxSelectionChangedEventArgs() { schemaItem = schema });
+            }
         }
     }
 }

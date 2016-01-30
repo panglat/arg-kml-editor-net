@@ -13,7 +13,7 @@ using System.Windows.Shapes;
 
 namespace ArgKmlEditorNet
 {
-    public class SelectionChangedEventArgs : EventArgs
+    public class KmlTreeViewControllerSelectionChangedEventArgs : EventArgs
     {
         public KMLFeatureTreeViewItem kmlFeatureTreeViewItem { get; set; }
     }
@@ -23,7 +23,7 @@ namespace ArgKmlEditorNet
         KmlFile _kmlFile = null;
         TreeView _treeView = null;
 
-        public event EventHandler<SelectionChangedEventArgs> TreeViewSelectionChanged;
+        public event EventHandler<KmlTreeViewControllerSelectionChangedEventArgs> TreeViewSelectionChanged;
 
         public void SetKML(KmlFile kmlFile) 
         {
@@ -273,9 +273,9 @@ namespace ArgKmlEditorNet
             return item;
         }
 
-        protected virtual void OnTreeViewSelectionChanged(SelectionChangedEventArgs e)
+        protected virtual void OnTreeViewSelectionChanged(KmlTreeViewControllerSelectionChangedEventArgs e)
         {
-            EventHandler<SelectionChangedEventArgs> handler = TreeViewSelectionChanged;
+            EventHandler<KmlTreeViewControllerSelectionChangedEventArgs> handler = TreeViewSelectionChanged;
             if (handler != null)
             {
                 handler(this, e);
@@ -284,7 +284,7 @@ namespace ArgKmlEditorNet
 
         private void SelectionChanged(object sender, System.Windows.RoutedPropertyChangedEventArgs<Object> e)
         {
-            OnTreeViewSelectionChanged(new SelectionChangedEventArgs() { kmlFeatureTreeViewItem = (KMLFeatureTreeViewItem)((TreeView)sender).SelectedItem });
+            OnTreeViewSelectionChanged(new KmlTreeViewControllerSelectionChangedEventArgs() { kmlFeatureTreeViewItem = (KMLFeatureTreeViewItem)((TreeView)sender).SelectedItem });
         }
     }
 }

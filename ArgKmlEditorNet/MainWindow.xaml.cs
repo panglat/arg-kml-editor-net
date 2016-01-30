@@ -26,6 +26,7 @@ namespace ArgKmlEditorNet
     public partial class MainWindow : Window
     {
         KMLFeatureTreeViewItem selectedKMLFeatureTreeViewItem = null;
+        KmlSchemaListViewController kmlSchemaListViewController = new KmlSchemaListViewController();
 
         public MainWindow()
         {
@@ -90,14 +91,17 @@ namespace ArgKmlEditorNet
                 kmlTreeViewController.ProcessKml();
                 kmlTreeViewController.TreeViewSelectionChanged += c_TreeViewSelectionChanged;
 
-                KmlSchemaComboBoxController kmlSchemaComboBoxController = new KmlSchemaComboBoxController();
+                KmlSchemaNameComboBoxController kmlSchemaComboBoxController = new KmlSchemaNameComboBoxController();
                 kmlSchemaComboBoxController.SetComboBox(this.SchemaListComboBox);
                 kmlSchemaComboBoxController.SetKML(kmlFile);
                 kmlSchemaComboBoxController.ProcessKml();
+                kmlSchemaComboBoxController.ComboBoxSelectionChanged += PropertySchemaSelectionChanged;
+
+                kmlSchemaListViewController.SetListView(this.SchemaListView);
             }
         }
 
-        void c_TreeViewSelectionChanged(object sender, SelectionChangedEventArgs e)
+        void c_TreeViewSelectionChanged(object sender, KmlTreeViewControllerSelectionChangedEventArgs e)
         {
             selectedKMLFeatureTreeViewItem = e.kmlFeatureTreeViewItem;
             Feature feature = selectedKMLFeatureTreeViewItem.Feature;   
@@ -127,6 +131,11 @@ namespace ArgKmlEditorNet
                 description.Text = ((TextBox)sender).Text;
                 feature.Description = description;
             }
+        }
+
+        private void PropertySchemaSelectionChanged(object sender, KmlSchemaComboBoxSelectionChangedEventArgs e)
+        {
+            kmlSchemaListViewController.SetSchema(e.schemaItem);
         }
     }
 }

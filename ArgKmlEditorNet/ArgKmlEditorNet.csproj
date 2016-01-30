@@ -66,13 +66,16 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="KMLFeatureTreeViewItem.cs" />
-    <Compile Include="KmlSchemaComboBoxController.cs" />
+    <Compile Include="KmlSchemaListViewController.cs" />
+    <Compile Include="KmlSchemaNameComboBoxController.cs" />
     <Compile Include="KmlSchemaComboBoxItem.cs" />
+    <Compile Include="KmlSchemaWithValueDto.cs" />
     <Compile Include="Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SchemaTypeEnum.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
