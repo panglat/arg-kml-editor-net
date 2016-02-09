@@ -37,13 +37,11 @@
     <Reference Include="Ionic.Zip.Reduced">
       <HintPath>..\packages\DotNetZip.Reduced.1.9.1.8\lib\net20\Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
-    <Reference Include="SharpKml, Version=2.1.0.0, Culture=neutral, PublicKeyToken=9bb853c026a5c0ac, processorArchitecture=MSIL">
-      <HintPath>..\packages\SharpKml.Core.2.1.0\lib\portable-net4+sl5+wp8+win8\SharpKml.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="SharpKml">
+      <HintPath>..\packages\SharpKml.Core.2.0.3\lib\portable-net4+sl5+wp8+win8\SharpKml.dll</HintPath>
     </Reference>
-    <Reference Include="SharpKml.Kmz, Version=2.0.2.0, Culture=neutral, PublicKeyToken=9bb853c026a5c0ac, processorArchitecture=MSIL">
-      <HintPath>..\packages\SharpKml.Kmz.2.0.2.2\lib\net40\SharpKml.Kmz.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="SharpKml.Kmz">
+      <HintPath>..\packages\SharpKml.Kmz.2.0.2\lib\net40\SharpKml.Kmz.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -65,11 +63,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DTO\KmlSchemaWithValueDto.cs" />
+    <Compile Include="KmlFeatureSchemaListViewController.cs" />
     <Compile Include="KMLFeatureTreeViewItem.cs" />
     <Compile Include="KmlSchemaListViewController.cs" />
     <Compile Include="KmlSchemaNameComboBoxController.cs" />
     <Compile Include="KmlSchemaComboBoxItem.cs" />
-    <Compile Include="KmlSchemaWithValueDto.cs" />
     <Compile Include="Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -126,6 +125,7 @@
   <ItemGroup>
     <None Include="images\MissingIconDemo.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
