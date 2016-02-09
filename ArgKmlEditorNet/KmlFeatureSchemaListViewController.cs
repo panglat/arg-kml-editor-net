@@ -19,7 +19,7 @@ namespace ArgKmlEditorNet
             _listView = listView;
         }
 
-        public void SetSchema(Feature feature)
+        public void SetFeature(Feature feature)
         {
             _feature = feature;
             ProcessSchema();

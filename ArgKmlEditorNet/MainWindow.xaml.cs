@@ -27,6 +27,7 @@ namespace ArgKmlEditorNet
     {
         KMLFeatureTreeViewItem selectedKMLFeatureTreeViewItem = null;
         KmlSchemaListViewController kmlSchemaListViewController = new KmlSchemaListViewController();
+        KmlFeatureSchemaListViewController kmlFeatureSchemaListViewController = new KmlFeatureSchemaListViewController();
 
         public MainWindow()
         {
@@ -98,16 +99,18 @@ namespace ArgKmlEditorNet
                 kmlSchemaComboBoxController.ComboBoxSelectionChanged += PropertySchemaSelectionChanged;
 
                 kmlSchemaListViewController.SetListView(this.SchemaListView);
+                kmlFeatureSchemaListViewController.SetListView(this.PropertySchemaListView);
             }
         }
 
         void c_TreeViewSelectionChanged(object sender, KmlTreeViewControllerSelectionChangedEventArgs e)
         {
             selectedKMLFeatureTreeViewItem = e.kmlFeatureTreeViewItem;
-            Feature feature = selectedKMLFeatureTreeViewItem.Feature;   
+            Feature feature = selectedKMLFeatureTreeViewItem.Feature;
 
             NameTextBox.Text = feature.Name;
             DescriptionTextBox.Text = feature.Description != null ? feature.Description.Text : "";
+            kmlFeatureSchemaListViewController.SetFeature(feature);
         }
 
         private void NameTextBox_TextChanged(object sender, TextChangedEventArgs e)
